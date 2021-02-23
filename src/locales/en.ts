@@ -13,4 +13,7 @@ export default {
     user: 'User Profile',
     notifications: 'Notifications',
   },
+  GoToTopButton: {
+    tooltip: 'Scroll to top',
+  },
 };

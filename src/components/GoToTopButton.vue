@@ -20,7 +20,7 @@
         </v-btn>
       </v-fab-transition>
     </template>
-    <span>Scroll to top</span>
+    <span>{{ $t('GoToTopButton.tooltip')}}</span>
   </v-tooltip>
 </template>
 

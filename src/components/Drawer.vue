@@ -6,7 +6,7 @@
     width="200"
     app
     class="pt-0"
-    color="grey lighten-3"
+    color="accent-4 lighten-3"
     id="navigation-drawer"
   >
     <v-list
@@ -18,17 +18,24 @@
         link
         @click="setExpanded()"
       >
-        <v-list-item-icon>
-          <v-icon v-if="isExpanded">
-            mdi-chevron-right
-          </v-icon>
-          <v-icon v-else>
-            mdi-chevron-left
-          </v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>
-          {{ $t('Drawer.menu') }}
-        </v-list-item-title>
+        <v-tooltip bottom open-delay="1500">
+          <template v-slot:activator="{ on }">
+            <v-list-item-icon
+              v-on="on"
+            >
+              <v-icon v-if="isExpanded">
+                mdi-menu
+              </v-icon>
+              <v-icon v-else>
+                mdi-chevron-left
+              </v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>
+              {{ $t('Drawer.menu') }}
+            </v-list-item-title>
+          </template>
+          <span>{{ $t('Drawer.menu') }}</span>
+        </v-tooltip>
       </v-list-item>
 
       <v-divider class="mb-2" />
@@ -46,14 +53,21 @@
         v-for="(menuItem, key) in menuItems"
         :key="key"
       >
-        <v-list-item-icon>
-          <v-icon>{{ menuItem.icon }}</v-icon>
-        </v-list-item-icon>
-        <v-list-item-title>
-          {{
-            $t(menuItem.titleKey)
-          }}
-        </v-list-item-title>
+        <v-tooltip bottom open-delay="500">
+          <template v-slot:activator="{ on }">
+            <v-list-item-icon
+              v-on="on"
+            >
+              <v-icon>{{ menuItem.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>
+              {{
+                $t(menuItem.titleKey)
+              }}
+            </v-list-item-title>
+          </template>
+          <span>{{ $t(menuItem.titleKey) }}</span>
+        </v-tooltip>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>
